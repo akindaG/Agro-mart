@@ -5,31 +5,60 @@ import { Link } from "react-router-dom";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-12">
       {/* Hero Section */}
-      <div className="bg-gradient-to-b from-primary/5 to-background py-20 border-b">
-        <div className="container px-4 text-center">
-          <span className="inline-block text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full mb-6">
-            Our Story
-          </span>
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6 max-w-4xl mx-auto">
-            Nourishing Lives Through Organic Excellence
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            At Earthy Eats Mart, we're on a mission to transform the way people experience food. Founded in 2020, we've grown from a small family farm to a trusted source for premium organic produce, connecting health-conscious consumers with the finest organic farmers.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Link to="/products">
-              <Button size="lg">Shop Our Products</Button>
-            </Link>
-            <Link to="/contact">
-              <Button size="lg" variant="outline">Contact Us</Button>
-            </Link>
+      <div className="relative h-[85vh] min-h-[600px] overflow-hidden border-b">
+        {/* Video Background */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            poster="/placeholder-about-video.jpg"
+          >
+            <source src="/src/assets/about-hero-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/50 to-background/20" />
+        </div>
+        
+        <div className="container relative z-10 h-full flex items-center px-6 sm:px-8 md:px-12 lg:px-16">
+          <div className="max-w-3xl w-full">
+            <span className="inline-block text-sm font-semibold text-white bg-primary px-4 py-1.5 rounded-full mb-6 sm:mb-8 shadow-md">
+              Our Story
+            </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 sm:mb-8 leading-tight [text-shadow:_0_1px_4px_rgba(0,0,0,0.4)]">
+              Nourishing Lives Through Organic Excellence
+            </h1>
+            <p className="text-lg text-white/95 max-w-2xl mb-8 sm:mb-10 leading-relaxed [text-shadow:_0_1px_2px_rgba(0,0,0,0.3)]">
+              At Earthy Eats Mart, we're on a mission to transform the way people experience food. We've grown from a small family farm to a trusted source for premium organic produce.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mt-10 sm:mt-12">
+              <Link to="/products" className="w-full sm:w-auto">
+                <Button 
+                  size="lg" 
+                  className="w-full bg-primary hover:bg-primary/90 text-white px-8 py-4 text-base font-medium transition-all duration-200 hover:shadow-lg hover:shadow-primary/30"
+                >
+                  Shop Our Products
+                </Button>
+              </Link>
+              <Link to="/contact" className="w-full sm:w-auto">
+                <Button 
+                  size="lg"
+                  variant="outline"
+                  className="w-full bg-white/5 border-white/20 hover:bg-white/10 hover:border-white/30 text-white px-8 py-4 text-base font-medium transition-colors duration-200"
+                >
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="container px-4 py-16">
+      <div className="container px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
 
         {/* Our Approach */}
         <div className="text-center max-w-4xl mx-auto mb-20">
@@ -180,62 +209,80 @@ const About = () => {
             create value-added products for home and kitchen.
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="mb-4 h-32 w-full rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground uppercase tracking-wide">
-                  Image coming soon
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <Card className="hover:shadow-lg transition-shadow overflow-hidden">
+              <CardContent className="p-0">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="/src/assets/sweet-corn.jpg"
+                    alt="Sweet Corn"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Sprout className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">Sweet Corn</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Crisp and sweet corn grown with sustainable practices. Perfect for grilling, boiling, or adding to
-                      salads and soups.
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="mb-4 h-32 w-full rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground uppercase tracking-wide">
-                  Image coming soon
-                </div>
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Leaf className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">Organic Fertilizer</h3>
-                    <p className="text-sm text-muted-foreground">
-                      Nutrient-rich compost and fertilizer made from our own farm byproducts, ideal for healthy home
-                      gardens and kitchen herbs.
-                    </p>
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Sprout className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-1">Sweet Corn</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Crisp and sweet corn grown with sustainable practices. Perfect for grilling, boiling, or adding to
+                        salads and soups.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-6">
-                <div className="mb-4 h-32 w-full rounded-lg bg-muted flex items-center justify-center text-xs text-muted-foreground uppercase tracking-wide">
-                  Image coming soon
+            <Card className="hover:shadow-lg transition-shadow overflow-hidden">
+              <CardContent className="p-0">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="/src/assets/organic-fertilizer.jpg"
+                    alt="Organic Fertilizer"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Truck className="h-6 w-6 text-primary" />
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Leaf className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-1">Organic Fertilizer</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        Nutrient-rich compost and fertilizer made from our own farm byproducts, ideal for healthy home
+                        gardens and kitchen herbs.
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-semibold text-foreground mb-1">Greenhouse Produce Box</h3>
-                    <p className="text-sm text-muted-foreground">
-                      A weekly selection of pesticide-free vegetables from our greenhouses, including tomatoes, cucumbers,
-                      peppers, and leafy greens.
-                    </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow overflow-hidden">
+              <CardContent className="p-0">
+                <div className="h-48 overflow-hidden">
+                  <img
+                    src="/src/assets/greenhouse-produce.jpg"
+                    alt="Greenhouse Produce"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+                <div className="p-5 sm:p-6">
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                      <Truck className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-1">Greenhouse Produce Box</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        A weekly selection of pesticide-free vegetables from our greenhouses, including tomatoes, cucumbers,
+                        peppers, and leafy greens.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -244,7 +291,7 @@ const About = () => {
         </div>
 
         {/* Team CTA */}
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center max-w-4xl mx-auto px-4 sm:px-6">
           <h2 className="text-3xl font-bold text-foreground mb-6">Meet Our Team</h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
             Our team of food enthusiasts, agricultural experts, and customer service professionals is dedicated to providing you with the best organic shopping experience. We're passionate about organic living and are here to support your journey to better health.

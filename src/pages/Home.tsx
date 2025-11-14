@@ -11,12 +11,12 @@ const Home = () => {
   const featuredProducts = products.slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background pb-12">
       <Hero />
 
       {/* Trust Badges */}
       <div className="bg-primary/5 py-4 border-b">
-        <div className="container px-4">
+        <div className="container px-4 sm:px-6">
           <div className="flex flex-wrap justify-center items-center gap-4 text-sm text-muted-foreground">
             <Badge variant="outline" className="gap-2">
               <ShieldCheck className="h-4 w-4 text-green-600" />
@@ -35,37 +35,37 @@ const Home = () => {
       </div>
 
       {/* Features Section */}
-      <section className="py-16 bg-secondary">
-        <div className="container px-4">
+      <section className="py-12 sm:py-16 bg-secondary">
+        <div className="container px-4 sm:px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h2 className="text-3xl font-bold text-foreground mb-4">Why Choose Earthy Eats Mart?</h2>
             <p className="text-muted-foreground">
               We're committed to bringing you the freshest, most nutritious organic produce while supporting sustainable farming practices and local communities.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="h-full text-center p-5 sm:p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4">
                 <Leaf className="h-7 w-7 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">Certified Organic</h3>
               <p className="text-sm text-muted-foreground">All products are USDA certified organic, free from harmful pesticides and GMOs</p>
             </div>
-            <div className="text-center p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <div className="h-full text-center p-5 sm:p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4">
                 <Award className="h-7 w-7 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">Premium Quality</h3>
               <p className="text-sm text-muted-foreground">Rigorously tested to meet our high standards for freshness and nutrition</p>
             </div>
-            <div className="text-center p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <div className="h-full text-center p-5 sm:p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4">
                 <Truck className="h-7 w-7 text-primary" />
               </div>
               <h3 className="text-lg font-semibold text-foreground mb-2">Fast & Fresh</h3>
               <p className="text-sm text-muted-foreground">Harvested fresh and delivered to your door within 24-48 hours</p>
             </div>
-            <div className="text-center p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-shadow">
+            <div className="h-full text-center p-5 sm:p-6 bg-background rounded-lg shadow-sm hover:shadow-md transition-all duration-200">
               <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-primary/10 mb-4">
                 <Heart className="h-7 w-7 text-primary" />
               </div>
@@ -76,8 +76,8 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 bg-background">
-        <div className="container px-4 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+      <section className="py-12 sm:py-16 bg-background">
+        <div className="container px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-4">
             <span className="inline-block text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
               From Our Partner Farms
@@ -94,12 +94,12 @@ const Home = () => {
               <Badge variant="outline">100% Residue Free</Badge>
             </div>
             <Link to="/products">
-              <Button size="lg" className="mt-4">
+              <Button size="lg" className="mt-6">
                 Explore Fruits
               </Button>
             </Link>
           </div>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4">
             {products
               .filter((p) => p.category === "Fruits")
               .slice(0, 2)
@@ -126,9 +126,9 @@ const Home = () => {
       </section>
 
       {/* Featured Products */}
-      <section className="py-16">
-        <div className="container px-4">
-          <div className="text-center mb-12">
+      <section className="py-12 sm:py-16">
+        <div className="container px-4 sm:px-6">
+          <div className="text-center mb-10 sm:mb-12 px-4">
             <span className="inline-block text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full mb-3">
               Fresh Picks
             </span>
@@ -140,13 +140,13 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {featuredProducts.map((product) => (
               <ProductCard key={product.id} product={product} mode="home" />
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-10 sm:mt-12">
             <Link to="/products">
               <Button size="lg" variant="outline">
                 View All Products

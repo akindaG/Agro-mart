@@ -26,11 +26,12 @@ const ProductDetail = () => {
 
   if (!product) {
     return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-foreground mb-4">Product Not Found</h2>
+      <div className="min-h-screen bg-background flex items-center justify-center py-16">
+        <div className="text-center max-w-md mx-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-4">Product Not Found</h2>
+          <p className="text-muted-foreground mb-6">The product you're looking for doesn't exist or has been removed.</p>
           <Link to="/products">
-            <Button variant="outline">Back to Products</Button>
+            <Button size="lg">Back to Products</Button>
           </Link>
         </div>
       </div>
@@ -38,40 +39,53 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="container px-4">
-        <Link to="/products">
-          <Button variant="ghost" className="mb-8">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Back to Products
-          </Button>
-        </Link>
+    <div className="min-h-screen bg-background">
+      <div className="container px-4 sm:px-6 py-10 sm:py-14">
+        <div className="mb-8 sm:mb-10">
+          <Link to="/products">
+            <Button variant="ghost" className="-ml-2">
+              <ArrowLeft className="h-4 w-4 mr-2" />
+              Back to Products
+            </Button>
+          </Link>
+        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14">
           {/* Product Image */}
-          <div className="relative aspect-square rounded-lg overflow-hidden">
+          <div className="relative aspect-square rounded-xl overflow-hidden shadow-sm">
             <img
               src={product.image}
               alt={product.name}
               className="w-full h-full object-cover"
+              loading="lazy"
             />
-            <Badge className="absolute top-4 right-4 bg-accent">{product.category}</Badge>
+            <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
+              {product.category}
+            </Badge>
           </div>
 
           {/* Product Details */}
-          <div>
-            <h1 className="text-4xl font-bold text-foreground mb-4">{product.name}</h1>
-            
-            <div className="flex items-baseline gap-4 mb-6">
-              <span className="text-4xl font-bold text-primary">${product.price}</span>
-              <span className="text-lg text-muted-foreground">per {product.unit}</span>
+          <div className="space-y-5 sm:space-y-6">
+            <div>
+              <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-3 sm:mb-4">
+                {product.name}
+              </h1>
+              
+              <div className="flex items-baseline gap-3 sm:gap-4">
+                <span className="text-3xl sm:text-4xl font-bold text-primary">
+                  ${product.price}
+                </span>
+                <span className="text-base sm:text-lg text-muted-foreground">
+                  per {product.unit}
+                </span>
+              </div>
             </div>
 
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+            <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
               {product.description}
             </p>
 
-            <div className="flex flex-col md:flex-row gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-3 pt-2">
               {isSesameOil ? (
                 <>
                   <Button
@@ -107,24 +121,30 @@ const ProductDetail = () => {
             </div>
 
             {/* Product Features */}
-            <div className="space-y-4 border-t border-border pt-8">
-              <h3 className="font-semibold text-foreground mb-4">Product Features</h3>
-              <div className="flex items-start space-x-3">
-                <Package className="h-5 w-5 text-primary mt-0.5" />
+            <div className="space-y-5 border-t border-border pt-8 mt-8">
+              <h3 className="text-lg font-semibold text-foreground mb-5">Product Features</h3>
+              <div className="flex items-start gap-3 p-3 sm:p-4 bg-muted/30 rounded-lg">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                  <Package className="h-5 w-5 text-primary" />
+                </div>
                 <div>
                   <h4 className="font-medium text-foreground">Package Size</h4>
                   <p className="text-sm text-muted-foreground">{product.unit} per unit</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-3">
-                <Truck className="h-5 w-5 text-primary mt-0.5" />
+              <div className="flex items-start gap-3 p-3 sm:p-4 bg-muted/30 rounded-lg">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                  <Truck className="h-5 w-5 text-primary" />
+                </div>
                 <div>
                   <h4 className="font-medium text-foreground">Fast Delivery</h4>
                   <p className="text-sm text-muted-foreground">Free shipping on orders over $50</p>
                 </div>
               </div>
-              <div className="flex items-start space-x-3">
-                <Shield className="h-5 w-5 text-primary mt-0.5" />
+              <div className="flex items-start gap-3 p-3 sm:p-4 bg-muted/30 rounded-lg">
+                <div className="flex-shrink-0 w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mt-0.5">
+                  <Shield className="h-5 w-5 text-primary" />
+                </div>
                 <div>
                   <h4 className="font-medium text-foreground">Quality Guarantee</h4>
                   <p className="text-sm text-muted-foreground">100% organic and certified</p>

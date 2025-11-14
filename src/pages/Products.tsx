@@ -12,19 +12,19 @@ const Products = () => {
       : products.filter((p) => p.category === selectedCategory);
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="container px-4">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+    <div className="min-h-screen bg-background">
+      <div className="container px-4 sm:px-6 py-10 sm:py-14">
+        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-5">
             Our Products
           </h1>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-muted-foreground">
             Browse our complete collection of premium organic products
           </p>
         </div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14 px-2 sm:px-0">
           {categories.map((category) => (
             <Button
               key={category}
@@ -38,14 +38,14 @@ const Products = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5 lg:gap-6">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} mode="home" />
           ))}
         </div>
 
         {filteredProducts.length === 0 && (
-          <div className="text-center py-12">
+          <div className="col-span-full text-center py-16 sm:py-20">
             <p className="text-muted-foreground">No products found in this category.</p>
           </div>
         )}

@@ -24,23 +24,25 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="container px-4">
-        <Link to="/products">
-          <Button variant="ghost" className="mb-8">
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Continue Shopping
-          </Button>
-        </Link>
+    <div className="min-h-screen bg-background">
+      <div className="container px-4 sm:px-6 py-8 sm:py-12">
+        <div className="space-y-6 sm:space-y-8">
+          <div>
+            <Link to="/products">
+              <Button variant="ghost" className="mb-4 sm:mb-6 -ml-2">
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Continue Shopping
+              </Button>
+            </Link>
+            <h1 className="text-3xl sm:text-4xl font-bold text-foreground">Shopping Cart</h1>
+          </div>
 
-        <h1 className="text-4xl font-bold text-foreground mb-8">Shopping Cart</h1>
-
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
           {/* Cart Items */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-5 sm:space-y-6">
             {cart.map((item) => (
               <Card key={item.id}>
-                <CardContent className="p-6">
+                <CardContent className="p-5 sm:p-6">
                   <div className="flex flex-col sm:flex-row gap-4">
                     <img
                       src={item.image}
@@ -48,7 +50,7 @@ const Cart = () => {
                       className="w-full sm:w-32 h-32 object-cover rounded-lg"
                     />
                     <div className="flex-1">
-                      <div className="flex justify-between items-start mb-2">
+                      <div className="flex justify-between items-start gap-3 mb-3">
                         <div>
                           <h3 className="font-semibold text-lg text-foreground">{item.name}</h3>
                           <p className="text-sm text-muted-foreground">{item.unit}</p>
@@ -62,7 +64,7 @@ const Cart = () => {
                           <Trash2 className="h-4 w-4" />
                         </Button>
                       </div>
-                      <div className="flex items-center justify-between mt-4">
+                      <div className="flex items-center justify-between mt-5">
                         <div className="flex items-center space-x-2">
                           <Button
                             variant="outline"
@@ -89,17 +91,22 @@ const Cart = () => {
                 </CardContent>
               </Card>
             ))}
-            <Button variant="outline" onClick={clearCart} className="w-full">
+            <Button 
+              variant="outline" 
+              onClick={clearCart} 
+              className="w-full mt-2 sm:mt-3"
+              size="lg"
+            >
               Clear Cart
             </Button>
           </div>
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <Card className="sticky top-20">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-6">Order Summary</h3>
-                <div className="space-y-4">
+              <Card className="sticky top-24 sm:top-28">
+                <CardContent className="p-5 sm:p-6">
+                <h3 className="text-xl font-semibold text-foreground mb-5 sm:mb-6">Order Summary</h3>
+                  <div className="space-y-5">
                   <div className="flex justify-between text-muted-foreground">
                     <span>Subtotal</span>
                     <span>${total.toFixed(2)}</span>
@@ -116,7 +123,7 @@ const Cart = () => {
                       </span>
                     </div>
                   </div>
-                  <Button size="lg" className="w-full mt-4">
+                  <Button size="lg" className="w-full mt-6">
                     Proceed to Checkout
                   </Button>
                   {total < 50 && (
@@ -130,6 +137,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };
